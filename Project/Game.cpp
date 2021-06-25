@@ -22,6 +22,27 @@ Game::Game()
 
 }
 
+Game::~Game()
+{
+
+}
+
+Game* Game::GetInstance()
+{
+	if (s_instance == nullptr)
+	{
+		s_instance = new Game();
+	}
+	return s_instance;
+}
+
+void Game::DeleteInstance()
+{
+	delete s_instance;
+	s_instance = nullptr;
+}
+
+
 int Game::Init(const char* title, int xPos, int yPos)
 {
 	std::cout << "Init Game ..." << std::endl;
